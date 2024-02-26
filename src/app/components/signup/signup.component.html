@@ -1,0 +1,84 @@
+<h2 class="flex justify-content-center align-items-center h-full">
+  Đăng ký tài khoản
+</h2>
+<h4 class="flex justify-content-center align-items-center h-full text-gray-500">
+  Tạo một tài khoản mới để sử dụng ChatSE
+</h4>
+<form [formGroup]="signupForm">
+  <p-card [style]="{ width: '360px' }">
+    <div class="field">
+      <label for="fullname">Tên tài khoản</label>
+      <input
+        type="text"
+        pInputText
+        formControlName="fullname"
+        class="w-full"
+        name="fullname"
+        placeholder="Nhập tên tài khoản"
+      />
+      <small
+        *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)"class="block p-error">
+        <div *ngIf="fullname.errors?.['pattern']">Tên cần chính xác</div>
+      </small>
+    </div>
+    <!-- --------------------------------------------------------------------------------------- -->
+    <div class="field">
+      <label for="email">Email</label>
+      <input
+        type="text"
+        pInputText
+        formControlName="email"
+        class="w-full"
+        name="email"
+        placeholder="Nhập email"
+      />
+      <small
+        *ngIf="email.invalid && (email.dirty || email.touched)"class="block p-error">
+        <div *ngIf="email.errors?.['required']">Cần nhập mật khẩu</div>
+      </small>
+    </div>
+<!-- ---------------------------------------------------------------------------------------------------------------- -->
+    <div class="field">
+      <label for="password">Mật khẩu</label>
+      <input
+        type="text"
+        pInputText
+        formControlName="password"
+        class="w-full"
+        name="password"
+        placeholder="Nhập mật khẩu"/>
+      <small
+        *ngIf="password.invalid && (password.dirty || password.touched)" class="block p-error">
+        <div *ngIf="password.errors?.['required']">Cần nhập mật khẩu</div>
+      </small>
+    </div>
+    <!-- ----------------------------------------------------------------------------------------- -->
+    <div class="field">
+      <label for="confirmPassword">Nhập lại mật khẩu</label>
+      <input
+        type="text"
+        pInputText
+        formControlName="confirmPassword"
+        class="w-full"
+        name="confirmPassword"
+        placeholder="Nhập lại mật khẩu"
+      />
+      <small
+        *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)"class="block p-error">
+        <div *ngIf="confirmPassword.errors?.['required']">Cần nhập mật khẩu</div>
+      </small>
+
+      <small class="block p-error"
+      *ngIf="signupForm.errors?.['passwordMismatch'] &&confirmPassword.valid && password.valid">Mật khẩu nhập lại chưa trùng khớp
+    </small>
+    </div>
+    <p-button
+      label="Đăng ký"
+      styleClass="w-full"
+      [disabled]="signupForm.invalid"
+    ></p-button>
+  </p-card>
+  <div class="mt-2 justify-content-center align-items-center">
+    Không phải bạn? Trở về <a routerLink="/login"> Đăng Nhập </a>
+  </div>
+</form>
