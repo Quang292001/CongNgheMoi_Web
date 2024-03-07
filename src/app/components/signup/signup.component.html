@@ -4,21 +4,24 @@
 <h4 class="flex justify-content-center align-items-center h-full text-gray-500">
   Tạo một tài khoản mới để sử dụng ChatSE
 </h4>
-<form [formGroup]="signupForm">
+<form [formGroup]="signupForm" (ngSubmit)="submitDetails()">
   <p-card [style]="{ width: '360px' }">
     <div class="field">
-      <label for="fullname">Tên tài khoản</label>
+      <label for="username">Tên tài khoản</label>
       <input
         type="text"
+        [(ngModel)]="user.username"
+        id="username"
         pInputText
-        formControlName="fullname"
+        formControlName="username"
         class="w-full"
-        name="fullname"
+        name="username"
         placeholder="Nhập tên tài khoản"
       />
       <small
-        *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)"class="block p-error">
-        <div *ngIf="fullname.errors?.['pattern']">Tên cần chính xác</div>
+        *ngIf="username.invalid && (username.dirty || username.touched)"class="block p-error">
+        <!-- <div *ngIf="fullname.errors?.['pattern']">Tên cần chính xác</div> -->
+        <div *ngIf="username.errors?.['required']">Cần nhập tên tài khoản</div>
       </small>
     </div>
     <!-- --------------------------------------------------------------------------------------- -->
@@ -26,6 +29,8 @@
       <label for="email">Email</label>
       <input
         type="text"
+        [(ngModel)]="user.email"
+        id="email"
         pInputText
         formControlName="email"
         class="w-full"
@@ -37,11 +42,31 @@
         <div *ngIf="email.errors?.['required']">Cần nhập mật khẩu</div>
       </small>
     </div>
+    <!-- --------------------------------------------------------------------------------------- -->
+    <div class="field">
+      <label for="phonenumber">Số điện thoại</label>
+      <input
+        type="text"
+        [(ngModel)]="user.phonenumber"
+        id="phonenumber"
+        pInputText
+        formControlName="phonenumber"
+        class="w-full"
+        name="phonenumber"
+        placeholder="Nhập số điện thoại"
+      />
+      <small
+        *ngIf="phonenumber.invalid && (phonenumber.dirty || phonenumber.touched)"class="block p-error">
+        <div *ngIf="phonenumber.errors?.['required']">Cần nhập số điện thoại</div>
+      </small>
+    </div>
 <!-- ---------------------------------------------------------------------------------------------------------------- -->
     <div class="field">
       <label for="password">Mật khẩu</label>
       <input
         type="text"
+        [(ngModel)]="user.password"
+        id="password"
         pInputText
         formControlName="password"
         class="w-full"
@@ -57,6 +82,8 @@
       <label for="confirmPassword">Nhập lại mật khẩu</label>
       <input
         type="text"
+        [(ngModel)]="user.confirmPassword"
+        id="confirmPassword"
         pInputText
         formControlName="confirmPassword"
         class="w-full"
@@ -76,6 +103,7 @@
       label="Đăng ký"
       styleClass="w-full"
       [disabled]="signupForm.invalid"
+      type="submit"
     ></p-button>
   </p-card>
   <div class="mt-2 justify-content-center align-items-center">
