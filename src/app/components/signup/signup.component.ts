@@ -42,17 +42,15 @@ export class SignupComponent {
 
   submitDetails() {
     console.log(this.user);
-    const postData = { ...this.signupForm.value };
-    postData.phonenumber = String(postData.phonenumber); // Chuyển đổi phonenumber từ số sang chuỗi
-    delete postData.confirmPassword;
-
     this.signupService.signupUser(this.user).subscribe(
-      response => {
-        console.log(response);
+      data => {
+        console.log(data);
         this.messageservice.add({ severity: 'success', summary: 'Thành công', detail: 'Đăng ký thành công' });
+
         this.router.navigate(['login']);
       },
-      error => {
+      error =>
+       {
         this.messageservice.add({ severity: 'error', summary: 'Lỗi', detail: 'Đăng ký không thành công' });
       }
     );

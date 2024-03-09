@@ -4,24 +4,23 @@
 <h4 class="flex justify-content-center align-items-center h-full text-gray-500">
   Đăng nhập tài khoản để sử dụng ChatSE
 </h4>
-
-
-
-<form [formGroup]="loginForm">
+<form [formGroup]="loginForm" (ngSubmit)="userLogin()">
   <p-card [style]="{ width: '360px' }">
     <div class="field">
-      <label for="email">Email</label>
+      <label for="phonenumber">Số điện thoại</label>
       <input
         type="text"
+        id="phonenumber"
+        [(ngModel)]="user.phonenumber"
         pInputText
-        formControlName="email"
+        formControlName="phonenumber"
         class="w-full"
-        name="email"
-        placeholder="Nhập email"
+        name="phonenumber"
+        placeholder="Nhập số điện thoại"
       />
       <small
-        *ngIf="email.invalid && (email.dirty || email.touched)"class="block p-error">
-        <div *ngIf="email.errors?.['required']">Cần nhập mật khẩu</div>
+        *ngIf="phonenumber.invalid && (phonenumber.dirty || phonenumber.touched)"class="block p-error">
+        <div *ngIf="phonenumber.errors?.['required']">Cần nhập số điện thoại</div>
       </small>
     </div>
 
@@ -32,6 +31,8 @@
       </div>
         <input
         type="text"
+        id="password"
+        [(ngModel)]="user.password"
         pInputText
         formControlName="password"
         class="w-full"
@@ -44,11 +45,12 @@
       </small>
     </div>
     <p-button
+  type="submit"
+  label="Đăng nhập"
+  styleClass="w-full"
+  [disabled]="loginForm.invalid"
+></p-button>
 
-      label="Đăng nhập"
-      styleClass="w-full"
-      [disabled]="loginForm.invalid"
-    ></p-button>
     <div ><a routerLink="/recoverpassword" class="mt-4 flex">Quên mật khẩu? </a></div>
   </p-card>
   <div class="mt-2 justify-content-center align-items-center">
