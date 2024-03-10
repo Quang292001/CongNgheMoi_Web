@@ -28,7 +28,7 @@
     <div class="field">
       <div class="">
         <label for="password">Mật khẩu</label>
-        <div ><a routerLink="/recoverpassword" >Quên mật khẩu? </a></div>
+
       </div>
         <input
         type="text"
@@ -39,9 +39,7 @@
         placeholder="Nhập mật khẩu"
       />
       <small
-        *ngIf="password.invalid && (password.dirty || password.touched)"
-        class="block p-error"
-      >
+        *ngIf="password.invalid && (password.dirty || password.touched)" class="block p-error">
         <div *ngIf="password.errors?.['required']">Cần nhập mật khẩu</div>
       </small>
     </div>
@@ -51,6 +49,7 @@
       styleClass="w-full"
       [disabled]="loginForm.invalid"
     ></p-button>
+    <div ><a routerLink="/recoverpassword" class="mt-4 flex">Quên mật khẩu? </a></div>
   </p-card>
   <div class="mt-2 justify-content-center align-items-center">
     Không có tài khoản? <a routerLink="/signup"> Đăng ký </a>
