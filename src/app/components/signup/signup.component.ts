@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 export class SignupComponent {
   user:User=new User();
   signupForm=this.fb.group({
-    fullname:['',[Validators.required]],
+    username:['',[Validators.required]],
     email:['',[Validators.required,Validators.email]],
     password: ['',Validators.required],
     confirmPassword: ['',Validators.required],
@@ -24,8 +24,8 @@ export class SignupComponent {
   })
   constructor(private fb:FormBuilder,private signupService: SignupService,private messageservice: MessageService,private router: Router){}
 
-  get fullname(){
-    return this.signupForm.controls['fullname'];
+  get username(){
+    return this.signupForm.controls['username'];
   }
   get phonenumber(){
     return this.signupForm.controls['phonenumber'];
@@ -40,18 +40,20 @@ export class SignupComponent {
     return this.signupForm.controls['confirmPassword'];
   }
 
-  submitDetails(){
-    const postData = {...this.signupForm.value};
-    delete postData.confirmPassword;
-    this.signupService.signupUser(this.user).subscribe(response=>{
-        console.log(response);
-        this.messageservice.add({severity:'success',summary:'Thành công',detail:'Đăng ký thành công'});
-        this.router.navigate(['login'])
-    },
-    error=>{
-      this.messageservice.add({severity:'error',summary:'Lỗi',detail:'Đăng ký không thành công'});
-    }
-    )
-    console.log(this.user)
+  submitDetails() {
+    console.log(this.user);
+    this.signupService.signupUser(this.user).subscribe(
+      data => {
+        console.log(data);
+        this.messageservice.add({ severity: 'success', summary: 'Thành công', detail: 'Đăng ký thành công' });
+
+        this.router.navigate(['login']);
+      },
+      error =>
+       {
+        this.messageservice.add({ severity: 'error', summary: 'Lỗi', detail: 'Đăng ký không thành công' });
+      }
+    );
   }
+
 }
