@@ -1,0 +1,55 @@
+/* CSS for Home Component */
+.chat-container {
+    display: flex;
+    align-items: stretch;
+    min-height: 80vh;
+    max-height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.left-column {
+    flex: 0.5;
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+    gap: 20px;
+    overflow-y: hidden;
+}
+
+.taskbar {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.taskbar button {
+    border: none;
+    background: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.taskbar button:hover {
+    background-color: #f0f0f0;
+}
+
+.taskbar button i {
+    font-size: 20px;
+}
+
+.spacer {
+    margin-bottom: 20px;
+}
+
+.right-column {
+    flex: 11;
+}
+
+.spacer{
+    margin-bottom: 20px;
+}
+

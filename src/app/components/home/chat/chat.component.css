@@ -1,0 +1,25 @@
+/* CSS for Chat Component */
+.columns-container {
+    display: flex; /* Sử dụng flexbox */
+}
+
+.mid-column {
+    flex: 3.5; /* Kích thước của cột mid */
+    /* Thêm các thuộc tính CSS cụ thể cho mid column nếu cần */
+}
+
+.right-column {
+    flex: 9; /* Kích thước của cột right */
+    display: flex; /* Xác định layout của cột right */
+    flex-direction: column; /* Xếp các phần tử bên trong cột right theo chiều dọc */
+}
+
+.chat-box {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    flex-grow: 1; /* Đảm bảo chat box mở rộng để lấp đầy không gian còn trống */
+}
+
+/* Add more CSS for Chat Component as needed */

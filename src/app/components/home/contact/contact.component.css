@@ -1,0 +1,34 @@
+.columns-container {
+    display: flex;
+}
+
+.mid-column {
+    flex: 3.5;
+}
+
+.right-column {
+    flex: 9;
+    display: flex;
+    flex-direction: column;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.button-container button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+    background-color: #f0f2f5;
+}
+
+/* Add CSS for Contact Component as needed */

@@ -1,0 +1,40 @@
+/* online-users.component.css */
+.online-users-grid {
+    display: flex;
+    padding-left: 20px;
+    overflow-x: auto;
+}
+
+.user {
+    position: relative;
+    margin-right: 10px;
+}
+
+.user:last-child {
+    margin-right: 0;
+}
+
+.user img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.user p {
+    margin: 0;
+    text-align: center;
+    font-size: 11px;
+    color: #333;
+}
+
+.online-dot {
+    position: absolute;
+    bottom: 20px;
+    left: 90%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    border-radius: 50%;
+}

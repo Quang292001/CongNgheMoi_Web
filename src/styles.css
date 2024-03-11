@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+@import "@fortawesome/fontawesome-free/css/all.css";
+
+
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+.rounded-image img {
+  border-radius: 50%;
+}
+.alert-success {
+  color: #155724; /* Màu chữ xanh */
+  background-color: #d4edda; /* Màu nền xanh lá */
+  padding: 15px 20px;
+  border-radius: 10px;
+}
+
+
+
+
+

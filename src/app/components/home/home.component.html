@@ -1,0 +1,22 @@
+<div class="chat-container">
+    <!-- Left Column: Taskbar -->
+    <div class="left-column">
+        <div class="taskbar">
+            <button (click)="selectComponent('profile')"><i class="fas fa-user"></i></button>
+            <button (click)="selectComponent('chat')"><i class="fas fa-envelope"></i></button>
+            <button (click)="selectComponent('address-book')"><i class="fas fa-address-book"></i></button>
+            <div class="spacer"></div>
+            <button><i class="fas fa-cloud"></i></button>
+            <button><i class="fas fa-toolbox"></i></button>
+            <button><i class="fas fa-cog"></i></button>
+            <!-- Add other buttons with corresponding selectComponent calls -->
+        </div>
+    </div>
+
+    <!-- Mid and Right Column: Dynamically load components based on selection -->
+    <div class="right-column">
+        <ng-container *ngIf="selectedComponent === 'chat'">
+            <app-chat></app-chat> <!-- This will load the ChatComponent -->
+        </ng-container>
+    </div>
+</div>
