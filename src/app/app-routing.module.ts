@@ -5,6 +5,7 @@ import { RecoverpasswordComponent } from './components/recoverpassword/recoverpa
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { ChatComponent } from './components/home/chat/chat.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
   },{
     path:'signup',
     component:SignupComponent
+  },
+  {
+    path:'chat',
+    component:ChatComponent
   },{
     path:'home',
     component:HomeComponent
